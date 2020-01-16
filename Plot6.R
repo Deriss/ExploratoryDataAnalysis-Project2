@@ -20,5 +20,9 @@ plotdata = dcast(meltdata, fips + year ~ variable,fun.aggregate = sum )
 #plot
 png(filename = "Plot6.png")
 g = ggplot(data = plotdata, aes(year,Emissions))      
-g + geom_point(aes(colour = fips))+ geom_line(aes(colour = fips))+ scale_colour_discrete(name = "County",labels = c("Los Angeles County","Baltimore")) + labs(y= 'Vehicle PM2.5 Emissions', title= 'PM 2.5 Vehicle Emissions Comparison')
+g + 
+geom_point(aes(colour = fips)) + 
+geom_line(aes(colour = fips)) + 
+scale_colour_discrete(name = "County",labels = c("Los Angeles County","Baltimore")) + 
+labs(y= 'Vehicle PM2.5 Emissions', title= 'PM 2.5 Vehicle Emissions Comparison')
 dev.off()
